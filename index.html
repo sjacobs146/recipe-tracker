@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Recipe Tracker</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags unless you know what you are doing -->
@@ -12,14 +12,71 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <h1>Example</h1>
-
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+      <nav class="navbar navbar-default">
+        <div class="navbar-header">
+          <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="#" class="navbar-brand">Recipe Tracker</a>
+        </div>
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active nav-link" id="signInMenuItem"><a href="#signIn" data-toggle="collapse">Sign In</a></li>
+            <li class="nav-link" id="signUpMenuItem"><a href="#signUp" data-toggle="collapse">Sign Up</a></li>
+            <li class="hidden nav-link signedIn" id="changePasswordMenuItem"><a href="#chgPwd" data-toggle="collapse">Change Password</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+              <li class="hidden signedIn"><button type=button class="btn btn-primary" id="sign-out">Sign Out</button></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="container">
+        <p class='message' id=message></p>
+      </div>
+      <div class="container collapse in main-container" id="signIn">
+        <form id="sign-in">
+          <div class="form-group">
+            <fieldset>
+              <legend>Sign in to your account to play</legend>
+              <input name="credentials[email]" type="text" class="form-control" placeholder="Email">
+              <input name="credentials[password]" type="password" class="form-control" placeholder="Password">
+              <input type="submit" name="submit" class="btn btn-primary" value="Sign In">
+            </fieldset>
+          </div>
+        </form>
+        <!-- <form class="navbar-form navbar-right" id="sign-out" hidden>
+          <input type="submit" name="submit" class="btn btn-primary" value="Sign out">
+        </form> -->
+      </div>
+      <br>
+      <div class="container collapse main-container" id="signUp">
+        <form id="sign-up">
+          <div class="form-group">
+            <fieldset>
+              <legend>Sign up for an account, your email address serves as your user name</legend>
+              <input name="credentials[email]" type="text" class="form-control" placeholder="Email">
+              <input name="credentials[password]" type="password" class="form-control" placeholder="Password">
+              <input name="credentials[password_confirmation]" type="password" class="form-control" placeholder="Confirm Password">
+              <input type="submit" name="submit" class="btn btn-primary" value="Sign Up">
+            </fieldset>
+          </div>
+        </form>
+      </div>
+      <br>
+      <div class="container collapse main-container" id="chgPwd">
+        <form id="change-password">
+          <div class="form-group">
+            <fieldset>
+              <legend>Change your password</legend>
+              <input name="passwords[old]" type="password" class="form-control" placeholder="Old password">
+              <input name="passwords[new]" type="password" class="form-control" placeholder="New password">
+              <input type="submit" name="submit" class="btn btn-primary" value="Change Password">
+            </fieldset>
+        </div>
+        </form>
+      </div>
     </body>
 </html>
