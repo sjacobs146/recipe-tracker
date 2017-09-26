@@ -28,6 +28,7 @@
             <li class="nav-link" id="signUpMenuItem"><a href="#signUp" data-toggle="collapse">Sign Up</a></li>
             <li class="hidden nav-link signedIn" id="changePasswordMenuItem"><a href="#chgPwd" data-toggle="collapse">Change Password</a></li>
             <li class="hidden nav-link signedIn" id="addRecipeMenuItem"><a href="#addRecipe" data-toggle="collapse">Add Recipe</a></li>
+            <li class="hidden nav-link signedIn" id="findRecipeMenuItem"><a href="#editRecipe" data-toggle="collapse">Find Recipe</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
               <li class="hidden signedIn"><button type=button class="btn btn-primary" id="sign-out">Sign Out</button></li>
@@ -41,7 +42,7 @@
         <form id="sign-in">
           <div class="form-group">
             <fieldset>
-              <legend>Sign in to your account to play</legend>
+              <legend>Sign in to your account</legend>
               <input name="credentials[email]" type="text" class="form-control" placeholder="Email">
               <input name="credentials[password]" type="password" class="form-control" placeholder="Password">
               <input type="submit" name="submit" class="btn btn-primary" value="Sign In">
@@ -52,7 +53,6 @@
           <input type="submit" name="submit" class="btn btn-primary" value="Sign out">
         </form> -->
       </div>
-      <br>
       <div class="container collapse main-container" id="signUp">
         <form id="sign-up">
           <div class="form-group">
@@ -66,7 +66,6 @@
           </div>
         </form>
       </div>
-      <br>
       <div class="container collapse main-container" id="chgPwd">
         <form id="change-password">
           <div class="form-group">
@@ -79,14 +78,13 @@
         </div>
         </form>
       </div>
-      <br>
       <div class="container collapse main-container" id="addRecipe">
         <form id="add-recipe">
           <div class="form-group">
             <fieldset>
               <legend>Enter your recipe</legend>
               <input name="name" type="text" class="form-control" required placeholder="Name">
-              <input name="serves" type="number" min="1" max="100" class="form-control" placeholder="Serves">
+              <input name="serves" type="number" min="0" max="100" class="form-control" placeholder="Serves">
               <!-- <input name="category" type="text" class="form-control" placeholder="Type"> -->
               <select name="category" class="form-control">
                 <option value="Appetizers">Appetizer</option>
@@ -111,7 +109,7 @@
             </fieldset>
           </div>
         </form>
-        <div class="container collapse main-container" id="displayRecipe">
+        <div class="container displayRecipe" id="displayRecipe">
         </div>
       </div>
     </body>

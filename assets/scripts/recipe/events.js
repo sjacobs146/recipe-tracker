@@ -21,8 +21,18 @@ const onAddRecipe = function (event) {
     .catch(ui.addRecipeFailure)
 }
 
+const onFindRecipe = function (event) {
+  event.preventDefault()
+  const data = getFormFields(this)
+  const name = data.name
+  api.getRecipesForUser()
+    .then(ui.getRecipesForUserSuccess)
+    .catch(ui.getRecipesForUserFailure)
+}
+
 const addHandlers = function () {
   $('#add-recipe').on('submit', onAddRecipe)
+  $('#findRecipe').on('submit', onFindRecipe)
 }
 
 module.exports = {
