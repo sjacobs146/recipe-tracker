@@ -1,7 +1,6 @@
 'use strict'
 
 const reset = require('../forms/reset')
-const store = require('../store')
 const showRecipesTemplate = require('../templates/recipe-listing.handlebars')
 const api = require('./api')
 
@@ -15,15 +14,18 @@ const addRecipeFailure = function (error) {
 }
 
 const getRecipesForUserSuccess = function (data) {
+  console.log(this)
   if (data.recipes.length > 0) {
     $('#message').text('Recipes found!')
-    store.recipes = data.recipes
+    const matchingRecipes = data.recipes.map(recipe => recipe.name === 'Tequila Lime Chicken' )
     const showRecipesHtml = showRecipesTemplate({ recipes: data.recipes })
     $('.displayRecipe').append(showRecipesHtml)
     $('.deleteRecipeButton').on('click', function () {
       api.deleteRecipe($(this).parent().parent().data('id'))
         .then(deleteRecipeSuccess)
         .catch(deleteRecipeFailure)
+      // TODO: only want to do this if delete is successful
+      $(this).parent().parent().empty()
     })
   } else {
     $('#message').text('No recipes found')
@@ -36,7 +38,6 @@ const getRecipesForUserFailure = function (error) {
 
 const deleteRecipeSuccess = function (data) {
   $('#message').text('Recipe deleted!')
-  $(this).parent().parent().hide()
 }
 
 const deleteRecipeFailure = function (error) {

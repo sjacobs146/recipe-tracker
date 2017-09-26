@@ -24,7 +24,6 @@ const onAddRecipe = function (event) {
 const onFindRecipe = function (event) {
   event.preventDefault()
   const data = getFormFields(this)
-  const name = data.name
   api.getRecipesForUser()
     .then(ui.getRecipesForUserSuccess)
     .catch(ui.getRecipesForUserFailure)
