@@ -4,6 +4,7 @@ const onShowCollapsed = function () {
   // when a collapsed div is shown hide all other collapsible divs that are visible
   $('.main-container.collapse').not($(this)).collapse('hide')
   $('#message').text('')
+  $('.displayRecipe').empty()
 }
 
 const onNavClick = function () {
