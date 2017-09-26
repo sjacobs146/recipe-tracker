@@ -21,7 +21,7 @@ const signInSuccess = function (data) {
   $('#signInMenuItem').addClass('hidden')
   $('#signUpMenuItem').addClass('hidden')
   $('.signedIn').removeClass('hidden')
-  $('#game-board').collapse('show')
+  $('#addRecipe').collapse('show')
 }
 
 const signInFailure = function (error) {

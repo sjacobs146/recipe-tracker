@@ -27,6 +27,7 @@
             <li class="active nav-link" id="signInMenuItem"><a href="#signIn" data-toggle="collapse">Sign In</a></li>
             <li class="nav-link" id="signUpMenuItem"><a href="#signUp" data-toggle="collapse">Sign Up</a></li>
             <li class="hidden nav-link signedIn" id="changePasswordMenuItem"><a href="#chgPwd" data-toggle="collapse">Change Password</a></li>
+            <li class="hidden nav-link signedIn" id="addRecipeMenuItem"><a href="#addRecipe" data-toggle="collapse">Add Recipe</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
               <li class="hidden signedIn"><button type=button class="btn btn-primary" id="sign-out">Sign Out</button></li>
@@ -77,6 +78,41 @@
             </fieldset>
         </div>
         </form>
+      </div>
+      <br>
+      <div class="container collapse main-container" id="addRecipe">
+        <form id="add-recipe">
+          <div class="form-group">
+            <fieldset>
+              <legend>Enter your recipe</legend>
+              <input name="name" type="text" class="form-control" required placeholder="Name">
+              <input name="serves" type="number" min="1" max="100" class="form-control" placeholder="Serves">
+              <!-- <input name="category" type="text" class="form-control" placeholder="Type"> -->
+              <select name="category" class="form-control">
+                <option value="Appetizers">Appetizer</option>
+                <option value="Breads">Breads</option>
+                <option value="Vegetables">Vegetables</option>
+                <option value="Desserts">Desserts</option>
+              </select>
+              <input name="ingredients" type="text" class="form-control" required placeholder="Ingredients">
+              <input name="directions" type="text" class="form-control" placeholder="Directions">
+              <input type="submit" name="submit" class="btn btn-primary" value="Save">
+            </fieldset>
+          </div>
+        </form>
+      </div>
+      <div class="container collapse main-container" id="editRecipe">
+        <form id="findRecipe">
+          <div class="form-group">
+            <fieldset>
+              <legend>Enter recipe name</legend>
+              <input name="name" type="text" class="form-control" required placeholder="Name">
+              <input type="submit" name="submit" class="btn btn-primary" value="Find">
+            </fieldset>
+          </div>
+        </form>
+        <div class="container collapse main-container" id="displayRecipe">
+        </div>
       </div>
     </body>
 </html>
