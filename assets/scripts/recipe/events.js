@@ -18,7 +18,17 @@ const onFindRecipe = function (event) {
   const data = getFormFields(this)
   api.getRecipesForUser()
     .then(ui.getRecipesForUserSuccess)
+    .then( () => {
+      $('.deleteRecipeButton').on('click', onDelete)
+    })
     .catch(ui.getRecipesForUserFailure)
+}
+
+const onDelete = function () {
+  api.deleteRecipe($(this).parent().parent().data('id'))
+    .then(ui.deleteRecipeSuccess)
+    .then($(this).parent().parent().empty())
+    .catch(ui.deleteRecipeFailure)
 }
 
 const onEditRecipe = function (event) {

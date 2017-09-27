@@ -2,7 +2,6 @@
 
 const reset = require('../forms/reset')
 const showRecipesTemplate = require('../templates/recipe-listing.handlebars')
-const api = require('./api')
 
 const addRecipeSuccess = function (data) {
   $('#message').text('Recipe added!')
@@ -19,13 +18,6 @@ const getRecipesForUserSuccess = function (data) {
     // const matchingRecipes = data.recipes.map(recipe => recipe.name === 'Tequila Lime Chicken' )
     const showRecipesHtml = showRecipesTemplate({ recipes: data.recipes })
     $('.displayRecipe').append(showRecipesHtml)
-    $('.deleteRecipeButton').on('click', function () {
-      api.deleteRecipe($(this).parent().parent().data('id'))
-        .then(deleteRecipeSuccess)
-        .catch(deleteRecipeFailure)
-      // TODO: only want to do this if delete is successful
-      $(this).parent().parent().empty()
-    })
   } else {
     $('#message').text('No recipes found')
   }
