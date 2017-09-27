@@ -7,15 +7,7 @@ const ui = require('./ui')
 const onAddRecipe = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
-  const recipe = {
-    'recipe': {
-      'name': data.name,
-      'serves': data.serves,
-      'category': data.category,
-      'ingredients': data.ingredents,
-      'directions': data.directions
-    }
-  }
+  const recipe = { recipe: data }
   api.addRecipe(recipe)
     .then(ui.addRecipeSuccess)
     .catch(ui.addRecipeFailure)
@@ -40,7 +32,8 @@ const onEditRecipe = function (event) {
     }
   })
   delete data.id
-  api.updateRecipe(recipeId, data)
+  const recipe = { recipe: data }
+  api.updateRecipe(recipeId, recipe)
     .then(ui.updateRecipeSuccess)
     .catch(ui.updateRecipeFailure)
 }

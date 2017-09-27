@@ -45,7 +45,7 @@ const deleteRecipeFailure = function (error) {
 
 const updateRecipeSuccess = function (data) {
   $('#message').text('Recipe updated!')
-  reset.resetForm($('#edit-recipe'))
+  // reset.resetForm($('#edit-recipe'))
 }
 
 const updateRecipeFailure = function (error) {
