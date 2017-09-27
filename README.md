@@ -1,5 +1,6 @@
 # Recipe Tracker
-This application allows users to create, update, and retrieve recipe information
+This application allows users to create, update, and retrieve recipe
+information.  It has a JavaScript-based front-end and a Ruby-on-Rails backend.
 
 [Click Here for demo](https://sjacobs146.github.io/recipe-tracker/)
 
@@ -71,16 +72,16 @@ $.each(data, function (key, value) {
 
 # Wireframes and User Stories
 ## Wireframes
-![Wireframe 1](/docs/images/Wireframe_1.jpg)
+![Wireframe 1](/docs/images/wireframe_1.jpg)
 
-![Wireframe 2](/docs/images/Wireframe_2.jpg)
+![Wireframe 2](/docs/images/wireframe_2.jpg)
 
 ## User Stories
-As a user, I want to Add, Delete, Modify Recipes so I can find them easily
-As a user, I want to know how many people a recipe serves
-As a user, I want to rate my recipes so I can track which ones I like best
-As a user, I want to find recipes by type:  Appetizer, Breakfast, Entree, Dessert
-As a user, I want to find recipes that use a certain ingredient so I can use
+- As a user, I want to Add, Delete, Modify Recipes so I can find them easily
+- As a user, I want to know how many people a recipe serves
+- As a user, I want to rate my recipes so I can track which ones I like best
+- As a user, I want to find recipes by type:  Appetizer, Breakfast, Entree, Dessert
+- As a user, I want to find recipes that use a certain ingredient so I can use
 what I have on hand.
 
 ## Whew, time to get some sleep
