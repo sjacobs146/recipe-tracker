@@ -72,9 +72,9 @@ $.each(data, function (key, value) {
 
 # Wireframes and User Stories
 ## Wireframes
-![Wireframe 1](/docs/images/wireframe_1.jpg)
+![Wireframe 1](/docs/images/wireframe1.jpg)
 
-![Wireframe 2](/docs/images/wireframe_2.jpg)
+![Wireframe 2](/docs/images/wireframe2.jpg)
 
 ## User Stories
 - As a user, I want to Add, Delete, Modify Recipes so I can find them easily
