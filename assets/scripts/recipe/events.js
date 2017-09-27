@@ -29,9 +29,26 @@ const onFindRecipe = function (event) {
     .catch(ui.getRecipesForUserFailure)
 }
 
+const onEditRecipe = function (event) {
+  const data = getFormFields(this)
+  event.preventDefault()
+  const recipeId = data.id
+  // remove empty and null entries
+  $.each(data, function (key, value) {
+    if (value === '' || value === null) {
+      delete data[key]
+    }
+  })
+  delete data.id
+  api.updateRecipe(recipeId, data)
+    .then(ui.updateRecipeSuccess)
+    .catch(ui.updateRecipeFailure)
+}
+
 const addHandlers = function () {
   $('#add-recipe').on('submit', onAddRecipe)
   $('#findRecipe').on('submit', onFindRecipe)
+  $('#edit-recipe').on('submit', onEditRecipe)
 }
 
 module.exports = {

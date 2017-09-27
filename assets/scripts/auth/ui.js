@@ -36,6 +36,10 @@ const signOutSuccess = function () {
   $('#signInMenuItem').addClass('active')
   $('#signUpMenuItem').removeClass('hidden')
   reset.resetForm($('#signIn'))
+  reset.resetForm($('#edit-recipe'))
+  reset.resetForm($('#add-recipe'))
+  reset.resetForm($('#findRecipe'))
+  $('.displayRecipe').empty()
   $('#signIn').collapse('show')
 }
 

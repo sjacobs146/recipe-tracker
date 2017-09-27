@@ -14,10 +14,9 @@ const addRecipeFailure = function (error) {
 }
 
 const getRecipesForUserSuccess = function (data) {
-  console.log(this)
   if (data.recipes.length > 0) {
     $('#message').text('Recipes found!')
-    const matchingRecipes = data.recipes.map(recipe => recipe.name === 'Tequila Lime Chicken' )
+    // const matchingRecipes = data.recipes.map(recipe => recipe.name === 'Tequila Lime Chicken' )
     const showRecipesHtml = showRecipesTemplate({ recipes: data.recipes })
     $('.displayRecipe').append(showRecipesHtml)
     $('.deleteRecipeButton').on('click', function () {
@@ -44,9 +43,20 @@ const deleteRecipeFailure = function (error) {
   $('#message').text('Error deleting recipe, please try again.')
 }
 
+const updateRecipeSuccess = function (data) {
+  $('#message').text('Recipe updated!')
+  reset.resetForm($('#edit-recipe'))
+}
+
+const updateRecipeFailure = function (error) {
+  $('#message').text('Error updating recipe, please try again.')
+}
+
 module.exports = {
   addRecipeSuccess,
   addRecipeFailure,
   getRecipesForUserSuccess,
-  getRecipesForUserFailure
+  getRecipesForUserFailure,
+  updateRecipeSuccess,
+  updateRecipeFailure
 }
