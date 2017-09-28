@@ -3,6 +3,8 @@
 const getFormFields = require(`../../../lib/get-form-fields`)
 const api = require('./api')
 const ui = require('./ui')
+const store = require('../store')
+const showRecipesTemplate = require('../templates/recipe-listing.handlebars')
 
 const onAddRecipe = function (event) {
   const data = getFormFields(this)
@@ -15,11 +17,26 @@ const onAddRecipe = function (event) {
 
 const onFindRecipe = function (event) {
   event.preventDefault()
-  const data = getFormFields(this)
+  const searchString = getFormFields(this).name.toUpperCase()
+  $('.displayRecipe').empty()
+  // TODO: use cache instead of calling api every time
   api.getRecipesForUser()
     .then(ui.getRecipesForUserSuccess)
-    .then( () => {
-      $('.deleteRecipeButton').on('click', onDelete)
+    .then(() => {
+      if (store.recipes != null) {
+        let matchingRecipes = []
+        if (searchString === '') {
+          matchingRecipes = store.recipes
+        } else {
+          matchingRecipes = store.recipes.filter(recipe => recipe.name.toUpperCase().includes(searchString))
+          if (matchingRecipes.length === 0) {
+            $('#message').text('No recipes match your search')
+          }
+        }
+        const showRecipesHtml = showRecipesTemplate({ recipes: matchingRecipes })
+        $('.displayRecipe').append(showRecipesHtml)
+        $('.deleteRecipeButton').on('click', onDelete)
+      }
     })
     .catch(ui.getRecipesForUserFailure)
 }

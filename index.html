@@ -86,11 +86,15 @@
               <legend>Enter your recipe</legend>
               <input name="name" type="text" class="form-control" required placeholder="Name">
               <input name="serves" type="number" min="0" max="100" class="form-control" placeholder="Serves">
-              <!-- <input name="category" type="text" class="form-control" placeholder="Type"> -->
               <select name="category" class="form-control">
                 <option value="Appetizers">Appetizer</option>
                 <option value="Breads">Breads</option>
+                <option value="Salads">Salads</option>
                 <option value="Vegetables">Vegetables</option>
+                <option value="Pasta">Pasta</option>
+                <option value="Poultry">Poultry</option>
+                <option value="Seafood">Seafood</option>
+                <option value="Meats">Meats</option>
                 <option value="Desserts">Desserts</option>
               </select>
               <input name="ingredients" type="text" class="form-control" required placeholder="Ingredients">
@@ -104,8 +108,8 @@
         <form id="findRecipe">
           <div class="form-group">
             <fieldset>
-              <legend>Enter recipe name</legend>
-              <input name="name" type="text" class="form-control" required placeholder="Name">
+              <legend>Enter recipe name, or just click Find to get all recipes</legend>
+              <input name="name" type="text" class="form-control" placeholder="Name">
               <input type="submit" name="submit" class="btn btn-primary" value="Find">
             </fieldset>
           </div>
@@ -125,7 +129,12 @@
               <select name="category" class="form-control">
                 <option value="Appetizers">Appetizer</option>
                 <option value="Breads">Breads</option>
+                <option value="Salads">Salads</option>
                 <option value="Vegetables">Vegetables</option>
+                <option value="Pasta">Pasta</option>
+                <option value="Poultry">Poultry</option>
+                <option value="Seafood">Seafood</option>
+                <option value="Meats">Meats</option>
                 <option value="Desserts">Desserts</option>
               </select>
               <input name="ingredients" type="text" class="form-control" placeholder="Ingredients">
