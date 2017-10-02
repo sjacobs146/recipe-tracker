@@ -5,18 +5,20 @@ const reset = require('../forms/reset')
 
 const signUpSuccess = function (data) {
   $('#message').text('Successful signup')
-  $('.signUp').addClass('hidden')
   reset.resetForm($('#signUp'))
+  $('.signUp').addClass('hidden')
   $('#signIn').collapse('show')
 }
 
 const signUpFailure = function (error) {
   $('#message').text('Sign up failed!')
+  reset.resetForm($('#signUp'))
 }
 
 const signInSuccess = function (data) {
   $('#message').text('Successful sign in!')
   store.user = data.user
+  reset.resetForm($('#signIn'))
   $('#signIn').collapse('hide')
   $('#signInMenuItem').addClass('hidden')
   $('#signUpMenuItem').addClass('hidden')
@@ -26,6 +28,7 @@ const signInSuccess = function (data) {
 
 const signInFailure = function (error) {
   $('#message').text('Invalid email address or password, please try again')
+  reset.resetForm($('#signIn'))
 }
 
 const signOutSuccess = function () {
