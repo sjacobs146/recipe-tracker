@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html >
+    <head>
+      <title>Recipe Tracker</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags unless you know what you are doing -->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags unless you know what you are doing -->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body class="container-fluid">
+      <nav class="navbar navbar-custom">
+        <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="#" class="navbar-brand">Recipe Tracker</a>
+        </div>
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active nav-link" id="signInMenuItem"><a href="#signIn" data-toggle="collapse">Sign In</a></li>
+            <li class="nav-link" id="signUpMenuItem"><a href="#signUp" data-toggle="collapse">Sign Up</a></li>
+            <li class="hidden nav-link signedIn" id="addRecipeMenuItem"><a href="#addRecipe" data-toggle="collapse">Add Recipe</a></li>
+            <li class="hidden nav-link signedIn" id="findRecipeMenuItem"><a href="#viewRecipe" data-toggle="collapse">Find Recipe</a></li>
+            <li class="hidden nav-link signedIn" id="editRecipeMenuItem"><a href="#editRecipe" data-toggle="collapse">Edit Recipe</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="hidden nav-link signedIn" id="changePasswordMenuItem"><a href="#chgPwd" data-toggle="collapse">Change Password</a></li>
+            <li class="hidden nav-link signedIn" id="sign-out"><a href="#" data-toggle="collapse">Sign Out</a></li>
+            <!-- <li class="hidden nav-link"><button type=button class="btn btn-primary my-sm-0" id="sign-out">Sign Out</button></li> -->
+          </ul>
+        </div>
+      </div>
+      </nav>
+      <div class="container">
+        <p class='message' id=message></p>
+      </div>
+      <div class="container collapse in main-container" id="signIn">
+        <form id="sign-in" class="form-signin">
+          <div class="form-group">
+            <fieldset>
+              <!-- <legend>Sign in to your account</legend> -->
+              <h2 class="form-signin-heading">Sign in to your account</h2>
+              <label for="credentials[email]" class="sr-only">Email address</label>
+              <input name="credentials[email]" type="text" class="form-control" placeholder="Email" required autofocus>
+              <label for="credentials[password]" class="sr-only">Password</label>
+              <input name="credentials[password]" type="password" class="form-control" placeholder="Password">
+            </fieldset>
+          </div>
+          <input type="submit" name="submit" class="btn btn-large btn-primary btn-block" value="Sign In">
+        </form>
+      </div>
+      <div class="container collapse main-container" id="signUp">
+        <form id="sign-up" class="form-signup">
+          <div class="form-group">
+            <fieldset>
+              <legend>Sign up for an account, your email address serves as your user name</legend>
+              <label for="credentials[email]" class="sr-only">Email address</label>
+              <input name="credentials[email]" type="text" class="form-control" placeholder="Email">
+              <label for="credentials[password]" class="sr-only">Password</label>
+              <input name="credentials[password]" type="password" class="form-control" placeholder="Password">
+              <label for="credentials[password_confirmation]" class="sr-only">Password confirmation</label>
+              <input name="credentials[password_confirmation]" type="password" class="form-control" placeholder="Confirm Password">
+            </fieldset>
+          </div>
+          <input type="submit" name="submit" class="btn btn-primary" value="Sign Up">
+        </form>
+      </div>
+      <div class="container collapse main-container" id="chgPwd">
+        <form id="change-password">
+          <div class="form-group">
+            <fieldset>
+              <legend>Change your password</legend>
+              <label for="passwords[old]">Old password</label>
+              <input name="passwords[old]" type="password" class="form-control" placeholder="Old password">
+                <label for="passwords[new]">New password</label>
+              <input name="passwords[new]" type="password" class="form-control" placeholder="New password">
+            </fieldset>
+        </div>
+        <input type="submit" name="submit" class="btn btn-primary" value="Change Password">
+        </form>
+      </div>
+      <div class="container collapse main-container" id="addRecipe">
+        <form id="add-recipe">
+          <div class="form-group">
+            <fieldset>
+              <legend>Enter your recipe</legend>
+              <input name="name" type="text" class="form-control" required placeholder="Name">
+              <input name="serves" type="number" min="0" max="100" class="form-control" placeholder="Serves">
+              <select name="category" class="form-control">
+                <option value="Appetizers">Appetizer</option>
+                <option value="Breads">Breads</option>
+                <option value="Salads">Salads</option>
+                <option value="Vegetables">Vegetables</option>
+                <option value="Pasta">Pasta</option>
+                <option value="Poultry">Poultry</option>
+                <option value="Seafood">Seafood</option>
+                <option value="Meats">Meats</option>
+                <option value="Desserts">Desserts</option>
+              </select>
+              <input name="ingredients" type="text" class="form-control" required placeholder="Ingredients">
+              <input name="directions" type="text" class="form-control" placeholder="Directions">
+            </fieldset>
+          </div>
+          <input type="submit" name="submit" class="btn btn-primary" value="Save">
+        </form>
+      </div>
+      <div class="container collapse main-container" id="viewRecipe">
+        <form id="findRecipe">
+          <div class="form-group">
+            <fieldset>
+              <legend>Enter recipe name, or just click Find to get all recipes</legend>
+              <input name="name" type="text" class="form-control" placeholder="Name">
+            </fieldset>
+          </div>
+          <input type="submit" name="submit" class="btn btn-primary" value="Find">
+        </form>
+        <div class="container displayRecipe" id="displayRecipe">
+        </div>
+      </div>
+
+      <div class="container collapse main-container" id="editRecipe">
+        <form id="edit-recipe">
+          <div class="form-group">
+            <fieldset>
+              <legend>Edit your recipe</legend>
+              <input name="id" type="text" class="form-control" required placeholder="Id">
+              <input name="name" type="text" class="form-control" placeholder="Name">
+              <input name="serves" type="number" min="0" max="100" class="form-control" placeholder="Serves">
+              <select name="category" class="form-control">
+                <option value="Appetizers">Appetizer</option>
+                <option value="Breads">Breads</option>
+                <option value="Salads">Salads</option>
+                <option value="Vegetables">Vegetables</option>
+                <option value="Pasta">Pasta</option>
+                <option value="Poultry">Poultry</option>
+                <option value="Seafood">Seafood</option>
+                <option value="Meats">Meats</option>
+                <option value="Desserts">Desserts</option>
+              </select>
+              <input name="ingredients" type="text" class="form-control" placeholder="Ingredients">
+              <input name="directions" type="text" class="form-control" placeholder="Directions">
+            </fieldset>
+          </div>
+          <input type="submit" name="submit" class="btn btn-primary" value="Save">
+        </form>
+      </div>
+    </body>
+</html>
