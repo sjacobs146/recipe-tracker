@@ -1,6 +1,7 @@
 'use strict'
 
 const getFormFields = require(`../../../lib/get-form-fields`)
+const reset = require('../forms/reset')
 const api = require('./api')
 const ui = require('./ui')
 const store = require('../store')
@@ -31,6 +32,8 @@ const onFindRecipe = function (event) {
           matchingRecipes = store.recipes.filter(recipe => recipe.name.toUpperCase().includes(searchString))
           if (matchingRecipes.length === 0) {
             $('#message').text('No recipes match your search')
+          } else {
+            reset.resetForm($('#findRecipe'))
           }
         }
         const showRecipesHtml = showRecipesTemplate({ recipes: matchingRecipes })

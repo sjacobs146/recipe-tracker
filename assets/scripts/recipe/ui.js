@@ -2,7 +2,6 @@
 
 const store = require('../store')
 const reset = require('../forms/reset')
-const showRecipesTemplate = require('../templates/recipe-listing.handlebars')
 
 const addRecipeSuccess = function (data) {
   $('#message').text('Recipe added!')
@@ -37,7 +36,7 @@ const deleteRecipeFailure = function (error) {
 
 const updateRecipeSuccess = function (data) {
   $('#message').text('Recipe updated!')
-  // reset.resetForm($('#edit-recipe'))
+  reset.resetForm($('#edit-recipe'))
 }
 
 const updateRecipeFailure = function (error) {

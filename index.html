@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html >
     <head>
       <title>Recipe Tracker</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,7 +12,8 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <nav class="navbar navbar-default">
+      <nav class="navbar navbar-custom">
+        <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
             <span class="sr-only">Toggle navigation</span>
@@ -32,39 +33,44 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="hidden nav-link signedIn" id="changePasswordMenuItem"><a href="#chgPwd" data-toggle="collapse">Change Password</a></li>
-            <li class="hidden signedIn"><button type=button class="btn btn-primary" id="sign-out">Sign Out</button></li>
+            <li class="hidden nav-link signedIn" id="sign-out"><a href="#" data-toggle="collapse">Sign Out</a></li>
+            <!-- <li class="hidden nav-link"><button type=button class="btn btn-primary my-sm-0" id="sign-out">Sign Out</button></li> -->
           </ul>
         </div>
+      </div>
       </nav>
       <div class="container">
         <p class='message' id=message></p>
       </div>
       <div class="container collapse in main-container" id="signIn">
-        <form id="sign-in">
+        <form id="sign-in" class="form-signin">
           <div class="form-group">
             <fieldset>
-              <legend>Sign in to your account</legend>
-              <input name="credentials[email]" type="text" class="form-control" placeholder="Email">
+              <!-- <legend>Sign in to your account</legend> -->
+              <h2 class="form-signin-heading">Sign in to your account</h2>
+              <label for="credentials[email]" class="sr-only">Email address</label>
+              <input name="credentials[email]" type="text" class="form-control" placeholder="Email" required autofocus>
+              <label for="credentials[password]" class="sr-only">Password</label>
               <input name="credentials[password]" type="password" class="form-control" placeholder="Password">
-              <input type="submit" name="submit" class="btn btn-primary" value="Sign In">
             </fieldset>
           </div>
+          <input type="submit" name="submit" class="btn btn-large btn-primary btn-block" value="Sign In">
         </form>
-        <!-- <form class="navbar-form navbar-right" id="sign-out" hidden>
-          <input type="submit" name="submit" class="btn btn-primary" value="Sign out">
-        </form> -->
       </div>
       <div class="container collapse main-container" id="signUp">
-        <form id="sign-up">
+        <form id="sign-up" class="form-signup">
           <div class="form-group">
             <fieldset>
               <legend>Sign up for an account, your email address serves as your user name</legend>
+              <label for="credentials[email]" class="sr-only">Email address</label>
               <input name="credentials[email]" type="text" class="form-control" placeholder="Email">
+              <label for="credentials[password]" class="sr-only">Password</label>
               <input name="credentials[password]" type="password" class="form-control" placeholder="Password">
+              <label for="credentials[password_confirmation]" class="sr-only">Password confirmation</label>
               <input name="credentials[password_confirmation]" type="password" class="form-control" placeholder="Confirm Password">
-              <input type="submit" name="submit" class="btn btn-primary" value="Sign Up">
             </fieldset>
           </div>
+          <input type="submit" name="submit" class="btn btn-primary" value="Sign Up">
         </form>
       </div>
       <div class="container collapse main-container" id="chgPwd">
@@ -72,11 +78,13 @@
           <div class="form-group">
             <fieldset>
               <legend>Change your password</legend>
+              <label for="passwords[old]">Old password</label>
               <input name="passwords[old]" type="password" class="form-control" placeholder="Old password">
+                <label for="passwords[new]">New password</label>
               <input name="passwords[new]" type="password" class="form-control" placeholder="New password">
-              <input type="submit" name="submit" class="btn btn-primary" value="Change Password">
             </fieldset>
         </div>
+        <input type="submit" name="submit" class="btn btn-primary" value="Change Password">
         </form>
       </div>
       <div class="container collapse main-container" id="addRecipe">
@@ -99,9 +107,9 @@
               </select>
               <input name="ingredients" type="text" class="form-control" required placeholder="Ingredients">
               <input name="directions" type="text" class="form-control" placeholder="Directions">
-              <input type="submit" name="submit" class="btn btn-primary" value="Save">
             </fieldset>
           </div>
+          <input type="submit" name="submit" class="btn btn-primary" value="Save">
         </form>
       </div>
       <div class="container collapse main-container" id="viewRecipe">
@@ -110,9 +118,9 @@
             <fieldset>
               <legend>Enter recipe name, or just click Find to get all recipes</legend>
               <input name="name" type="text" class="form-control" placeholder="Name">
-              <input type="submit" name="submit" class="btn btn-primary" value="Find">
             </fieldset>
           </div>
+          <input type="submit" name="submit" class="btn btn-primary" value="Find">
         </form>
         <div class="container displayRecipe" id="displayRecipe">
         </div>
@@ -139,9 +147,9 @@
               </select>
               <input name="ingredients" type="text" class="form-control" placeholder="Ingredients">
               <input name="directions" type="text" class="form-control" placeholder="Directions">
-              <input type="submit" name="submit" class="btn btn-primary" value="Save">
             </fieldset>
           </div>
+          <input type="submit" name="submit" class="btn btn-primary" value="Save">
         </form>
       </div>
     </body>
